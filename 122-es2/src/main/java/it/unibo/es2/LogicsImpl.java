@@ -30,7 +30,7 @@ public class LogicsImpl implements Logics {
                 return columns.stream().allMatch(value -> value == true);
             }) 
         || 
-            IntStream.range(0, this.buttons.get(0).size())
+            IntStream.range(0, this.buttons.size())
                 .anyMatch(i -> this.buttons.stream()
                     .map(row -> row.get(i))
                     .allMatch(value -> value == true)
