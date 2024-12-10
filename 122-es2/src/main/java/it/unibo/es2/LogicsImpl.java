@@ -34,7 +34,7 @@ public class LogicsImpl implements Logics {
                 .anyMatch(i -> this.buttons.stream()
                     .map(row -> row.get(i))
                     .allMatch(value -> value == true)
-            )
+                )
         );
     }
 
