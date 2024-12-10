@@ -2,7 +2,6 @@ package it.unibo.es2;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LogicsImpl implements Logics {

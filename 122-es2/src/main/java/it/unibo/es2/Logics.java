@@ -1,7 +1,5 @@
 package it.unibo.es2;
 
-import java.util.List;
-
 public interface Logics {
 	
 	/**
