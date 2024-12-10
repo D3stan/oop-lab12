@@ -15,31 +15,31 @@ public class LogicsImpl implements Logics {
 
 	@Override
 	public int size() {
-		return buttons.size();
+		return this.buttons.size();
 	}
 
 	@Override
 	public List<Integer> values() {
-		return List.copyOf(buttons);
+		return List.copyOf(this.buttons);
 	}
 
 	@Override
 	public List<Boolean> enablings() {
-		return buttons.stream().map(button -> button != buttons.size()).toList();
+		return this.buttons.stream().map(button -> button != this.buttons.size()).toList();
 	}
 
 	@Override
 	public int hit(int elem) {
-		return buttons.set(elem, buttons.get(elem) + 1) + 1;
+		return this.buttons.set(elem, this.buttons.get(elem) + 1) + 1;
 	}
 
 	@Override
 	public String result() {
-		return buttons.stream().map(String::valueOf).collect(Collectors.joining("|", "<<", ">>"));
+		return this.buttons.stream().map(String::valueOf).collect(Collectors.joining("|", "<<", ">>"));
 	}
 
 	@Override
 	public boolean toQuit() {
-		return buttons.stream().distinct().count() == 1;
+		return this.buttons.stream().distinct().count() == 1;
 	}
 }
