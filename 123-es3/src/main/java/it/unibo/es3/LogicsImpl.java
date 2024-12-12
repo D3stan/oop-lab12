@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class LogicsImpl implements Logics {
 
-    private static final Random random = new Random(42);   
+    private static final Random random = new Random();   
     private final Map<Point, Boolean> cells;
     private final int width;
     private boolean first = true;
