@@ -4,11 +4,10 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.*;
-import java.util.List;
 
 public class GUI extends JFrame implements KeyListener {
      
-    private final List<JButton> cells = new ArrayList<>();
+    private final Map<JButton, Point> cells = new HashMap<>();
     private final Logics logics;
     
     public GUI(int width) {
@@ -21,13 +20,13 @@ public class GUI extends JFrame implements KeyListener {
         
         ActionListener al = e -> {
             var jb = (JButton)e.getSource();
-        	jb.setText(String.valueOf(cells.indexOf(jb)));
+        	jb.setText(String.valueOf(((int)cells.get(jb).getX())) + ":" + String.valueOf(((int)cells.get(jb).getY())));
         };
                 
         for (int i = 0; i < width; i++){
             for (int j = 0; j < width; j++) {
                 final JButton jb = new JButton();
-                this.cells.add(jb);
+                this.cells.put(jb, new Point(j, i));
                 jb.addActionListener(al);
                 panel.add(jb);
             }
@@ -47,8 +46,12 @@ public class GUI extends JFrame implements KeyListener {
                 System.exit(1);
 
             } else {
-                logics.getNextCells().forEach(cellNum -> {
-                    this.cells.get(cellNum).setText("*");
+                logics.getNextCells().forEach(point -> {
+                    this.cells.forEach((button, coords) -> {
+                        if (coords.equals(point)) {
+                            button.setText("*");
+                        }
+                    });
                 });
             }
         }
